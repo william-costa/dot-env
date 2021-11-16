@@ -17,7 +17,10 @@ class Environment{
     //DEFINE AS VARIÁVEIS DE AMBIENTE
     $lines = file($dir.'/.env');
     foreach($lines as $line){
-      putenv(trim($line));
+      //VERIFICA SE A LINHA ESTÁ VAZIA
+      if (!empty($line = trim($line))) {
+        putenv($line);
+      }
     }
   }
 
